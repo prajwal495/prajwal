@@ -1,35 +1,15 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-
 export default function Footer() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isHome = location.pathname === '/';
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-    e.preventDefault();
-    if (!isHome) {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(target);
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const element = document.getElementById(target);
-      if (element) element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <footer className="border-t border-zinc-800 pt-16 pb-8 mt-12 bg-zinc-950">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-cyan-400 rounded flex items-center justify-center text-zinc-950 font-mono font-bold text-sm">
                 P_
               </div>
               <span className="font-mono font-semibold text-xl tracking-tight text-zinc-50">Prajwal<span className="text-cyan-400">.dev</span></span>
-            </Link>
+            </div>
             <p className="text-zinc-400 text-sm max-w-xs font-mono">
               // A B.Tech IT student who loves turning ideas into real, working web applications.
             </p>
@@ -38,9 +18,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-6 text-zinc-50 font-mono">Services</h4>
             <ul className="space-y-4 text-sm text-zinc-400 font-mono">
-              <li><a href="#" onClick={(e) => handleNavClick(e, 'services')} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Frontend Dev</a></li>
-              <li><a href="#" onClick={(e) => handleNavClick(e, 'services')} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Full-Stack Apps</a></li>
-              <li><a href="#" onClick={(e) => handleNavClick(e, 'services')} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; AI Integration</a></li>
+              <li><a href="#" className="hover:text-cyan-400 transition-colors">&gt; Frontend Dev</a></li>
+              <li><a href="#" className="hover:text-cyan-400 transition-colors">&gt; Full-Stack Apps</a></li>
+              <li><a href="#" className="hover:text-cyan-400 transition-colors">&gt; AI Integration</a></li>
             </ul>
           </div>
           
@@ -57,9 +37,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-6 text-zinc-50 font-mono">Information</h4>
             <ul className="space-y-4 text-sm text-zinc-400 font-mono">
-              <li><a href="#" onClick={(e) => handleNavClick(e, 'about')} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; About Me</a></li>
-              <li><a href="#" onClick={(e) => handleNavClick(e, 'portfolio')} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; My Work</a></li>
-              <li><a href="#" onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Contact Me</a></li>
+              <li><a href="#about" className="hover:text-cyan-400 transition-colors">&gt; About Me</a></li>
+              <li><a href="#portfolio" className="hover:text-cyan-400 transition-colors">&gt; My Work</a></li>
+              <li><a href="#contact" className="hover:text-cyan-400 transition-colors">&gt; Contact Me</a></li>
             </ul>
           </div>
         </div>
