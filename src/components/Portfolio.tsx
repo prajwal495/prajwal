@@ -1,11 +1,8 @@
 import { ArrowUpRight, Code2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { projects } from '../data/projects';
 
 export default function Portfolio() {
-  const projects = [
-    { title: 'LearnGrid', category: 'Educational Platform', img: 'https://picsum.photos/seed/learngrid/600/400', link: 'https://www.learngrid.online/' },
-    { title: 'HireFilter', category: 'AI-Powered Hiring Platform', img: 'https://picsum.photos/seed/hirefilter/600/400', link: 'https://hirefilter.vercel.app/' },
-  ];
-
   return (
     <section id="portfolio" className="py-20">
       <div className="flex justify-between items-end mb-12">
@@ -26,10 +23,10 @@ export default function Portfolio() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, idx) => (
-          <a href={project.link} target="_blank" rel="noreferrer" key={idx} className="group cursor-pointer block">
+          <Link to={`/project/${project.id}`} key={idx} className="group cursor-pointer block">
             <div className="bg-zinc-900/50 rounded-2xl overflow-hidden mb-4 aspect-[4/3] relative shadow-lg border border-zinc-800 group-hover:border-cyan-400/50 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-cyan-500/20 transition-all duration-500">
               <img 
-                src={project.img} 
+                src={project.thumbnail} 
                 alt={project.title} 
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out opacity-80 group-hover:opacity-100"
                 referrerPolicy="no-referrer"
@@ -47,14 +44,14 @@ export default function Portfolio() {
               </div>
 
               <div className="absolute top-4 right-4 bg-zinc-950/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-cyan-400 font-mono border border-zinc-800 z-20 group-hover:border-cyan-400/50 transition-colors duration-500">
-                Live Demo
+                View Details
               </div>
             </div>
             <div className="transform transition-transform duration-300 group-hover:translate-x-2">
               <p className="text-zinc-400 text-xs mb-1 font-mono">{project.category}</p>
               <h3 className="text-xl font-semibold group-hover:text-cyan-400 transition-colors text-zinc-50">{project.title}</h3>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
       

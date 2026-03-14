@@ -13,7 +13,6 @@ export default function Navbar() {
       <div className="hidden md:flex items-center gap-8 text-sm font-mono text-zinc-400">
         <a href="#" className="text-cyan-400">~/home</a>
         <a href="#portfolio" className="hover:text-zinc-50 transition-colors">~/portfolio</a>
-        <a href="#about" className="hover:text-zinc-50 transition-colors">~/about</a>
         <a href="#contact" className="hover:text-zinc-50 transition-colors">~/contact</a>
       </div>
 
