@@ -5,17 +5,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ClientLogos from './components/ClientLogos';
-import ServicesList from './components/ServicesList';
-import ServiceCards from './components/ServiceCards';
-import Portfolio from './components/Portfolio';
-import Testimonial from './components/Testimonial';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import LoadingScreen from './components/LoadingScreen';
+import Home from './pages/Home';
+import ProjectDetails from './pages/ProjectDetails';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,13 +44,10 @@ export default function App() {
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <Navbar />
-          <Hero />
-          <ClientLogos />
-          <ServicesList />
-          <ServiceCards />
-          <Portfolio />
-          <Testimonial />
-          <CTA />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
+          </Routes>
         </div>
         <Footer />
         <Chatbot />
